@@ -1,0 +1,29 @@
+services:
+  django:
+    image: python:latest
+    ports:
+      - 7081:81
+      - 7082:82
+    tty: true
+    volumes:
+      - .:/app
+  vue:
+    image: node:latest
+    tty: true
+    volumes:
+      - .:/app
+    ports:
+      - 7080:80
+      - 7083:83
+  onlyoffice:
+    image: onlyoffice/documentserver
+    ports:
+      - 6080:80
+    restart: always
+    env_file:
+      - .env
+    volumes:
+      - ./data/log:/var/log/onlyoffice
+      - ./data/www:/var/www/onlyoffice/Data
+      - ./data/lib:/var/lib/onlyoffice
+      - ./data/db:/var/lib/postgresql

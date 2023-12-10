@@ -1,0 +1,8 @@
+Django
+djangorestframework
+django-filter
+markdown
+django-cors-headers
+PyJWT
+docxtpl
+requests
